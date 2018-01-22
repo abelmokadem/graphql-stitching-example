@@ -16,13 +16,13 @@ module.exports = makeExecutableSchema({
 `,
   resolvers: {
     Query: {
-      bookById: async (parent, args, context, info) => {
-        return await request
+      bookById: (parent, args, context, info) => {
+        return request
           .get(`http://localhost:${process.env.GRAPHQL_PORT}/books/${args.id}`)
           .then(book => JSON.parse(book));
       },
-      booksByAuthorId: async (parent, args, context, info) => {
-        return await request
+      booksByAuthorId: (parent, args, context, info) => {
+        return request
           .get(
             `http://localhost:${process.env.GRAPHQL_PORT}/authors/${
               args.authorId

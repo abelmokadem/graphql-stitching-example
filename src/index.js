@@ -26,10 +26,10 @@ const schema = mergeSchemas({
     Book: {
       author: {
         fragment: "fragment BookFragment on Book { authorId }",
-        resolve: async (parent, args, context, info) => {
+        resolve: (parent, args, context, info) => {
           const id = parent.authorId;
 
-          return await mergeInfo.delegate(
+          return mergeInfo.delegate(
             "query",
             "authorById",
             {
@@ -44,10 +44,10 @@ const schema = mergeSchemas({
     Author: {
       books: {
         fragment: "fragment AuthorFragment on Author { id }",
-        resolve: async (parent, args, context, info) => {
+        resolve: (parent, args, context, info) => {
           const id = parent.id;
 
-          return await mergeInfo.delegate(
+          return mergeInfo.delegate(
             "query",
             "booksByAuthorId",
             {

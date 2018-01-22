@@ -14,8 +14,8 @@ module.exports = makeExecutableSchema({
 `,
   resolvers: {
     Query: {
-      authorById: async (parent, args, context, info) => {
-        return await request
+      authorById: (parent, args, context, info) => {
+        return request
           .get(
             `http://localhost:${process.env.GRAPHQL_PORT}/authors/${args.id}`
           )
