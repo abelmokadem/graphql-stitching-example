@@ -1,4 +1,4 @@
-#GraphQL stitching example
+# GraphQL stitching example
 
 GraphQL example using stitching to combine multiple schemas and fetch data from
 different API's.
